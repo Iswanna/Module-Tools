@@ -1,7 +1,7 @@
 content = "this is a list of words".split(" ");
 char = "i"
 
-filtered = [x for x in content if char in x]
+filtered = list(filter(lambda x: char in x, content))
 
 
 print(filtered)
