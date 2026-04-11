@@ -1,3 +1,4 @@
+ import java.net.InetAddress;
  import java.util.Arrays;
 
 class DnsResolver {
@@ -15,5 +16,15 @@ class DnsResolver {
         String[] parts = host.split("\\."); // you can also use "[.]"
         System.out.println(Arrays.toString(parts));
         System.out.printf("The top-level domain of the host %s is %s%n", host, parts[parts.length - 1]);
+
+
+        try {
+            // Resolving host name to IP address
+            InetAddress address = java.net.InetAddress.getByName(host);
+            System.out.println("IP address of " + host + ": " + address.getHostAddress());
+
+        } catch (Exception e) {
+            System.out.println("Could not resolve host: " + e.getMessage());
+        }
     }
 }
